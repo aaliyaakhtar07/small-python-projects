@@ -36,12 +36,20 @@ def list_students_by_course(course):
             students_in_course.append(name)
     return students_in_course
 
+def filter_top_students(threshold):
+    top_students = []
+    for name in student_records:
+        if calculate_average_grade(name)>threshold:
+            top_students.append(name)
+    return top_students
+
 add_student("Alice", 20, ["Math", "Physics"])
 add_student("Bob", 22, ["Biology", "Chemistry", "Math"])
-add_student("Diana", 21, ["Physics", "Chemistry"])
+add_student("Diana", 23, ["Physics", "Chemistry"])
 add_grade("Alice", 90)
 add_grade("Alice", 85)
 add_grade("Bob", 75)
+add_grade("Diana", 95)
 add_grade("Charlie", 80)  # Non-existent student
 print(is_enrolled("Alice", "Math"))  # Should return True
 print(is_enrolled("Alice", "Biology"))  # Should return False
@@ -55,4 +63,7 @@ print(list_students_by_course("Math"))  # Should return ["Alice", "Bob"]
 print(list_students_by_course("Physics"))  # Should return ["Alice", "Diana"]
 print(list_students_by_course("Biology"))  # Should return ["Bob"]
 print(list_students_by_course("History"))  # Should return an empty list
+print(filter_top_students(80))  # Should return ["Alice", "Diana"]
+print(filter_top_students(90))  # Should return ["Diana"]
+print(filter_top_students(100))  # Should return an empty list
 print(student_records)
