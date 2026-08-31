@@ -61,3 +61,6 @@ for line in range(5):
     for die in dice:
         print(dice_art[die][line], end=" ")
     print()
+for die in dice:
+    total += die
+print(f"You rolled a total of: {total}")
