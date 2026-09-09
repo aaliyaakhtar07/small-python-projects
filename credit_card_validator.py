@@ -5,4 +5,18 @@ total = 0
 card_number = input("Enter your credit card number: ")
 card_number = card_number.replace("-", "")
 card_number = card_number.replace(" ", "")
-print(f"Card Number: {card_number}")
+card_number = card_number[::-1]
+for x in card_number[::2]:
+    sum_odd_digits += int(x)
+
+for x in card_number[1::2]:
+    x = int(x)*2
+    if x>=10:
+        sum_even_digits+=(x%10)+1
+    else:
+        sum_even_digits+=x
+total = sum_odd_digits + sum_even_digits
+if total%10==0:
+    print("Valid credit card number")
+else:
+    print("Invalid credit card number")
