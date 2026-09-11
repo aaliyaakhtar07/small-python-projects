@@ -18,3 +18,13 @@ while is_running:
     print("3. Withdraw")
     print("4. Exit")
     choice = input("Enter your choice (1-4): ") 
+    if choice == '1':
+        show_balance()
+    elif choice == '2':
+        deposit()
+    elif choice == '3':
+        withdraw()
+    elif choice == '4':
+        is_running = False
+    else:
+        print("Invalid choice. Please try again.")
