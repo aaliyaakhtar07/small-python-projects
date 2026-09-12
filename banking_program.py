@@ -1,6 +1,6 @@
 #Banking Program
 def show_balance():
-    pass
+    print(f"Your current balance is: ${balance:.2f}")
 
 def deposit():
     pass
@@ -28,3 +28,5 @@ while is_running:
         is_running = False
     else:
         print("Invalid choice. Please try again.")
+
+print("Thank you for using the Banking Program. Goodbye!")
