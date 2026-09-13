@@ -3,7 +3,11 @@ def show_balance():
     print(f"Your current balance is: ${balance:.2f}")
 
 def deposit():
-    pass
+    amount = float(input("Enter the amount to deposit: "))
+    if amount<0:
+        print("Please enter a valid amount.")
+    else:
+        return amount
 
 def withdraw():
     pass
