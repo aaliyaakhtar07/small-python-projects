@@ -6,11 +6,20 @@ def deposit():
     amount = float(input("Enter the amount to deposit: "))
     if amount<0:
         print("Please enter a valid amount.")
+        return 0
     else:
         return amount
 
 def withdraw():
-    pass
+    amount = float(input("Enter the amount to withdraw: "))
+    if amount > balance:
+        print("Insufficient funds.")
+        return 0
+    elif amount < 0:
+        print("Please enter a valid amount.")
+        return 0
+    else:
+        return amount
 
 balance = 0
 is_running = True
@@ -25,12 +34,13 @@ while is_running:
     if choice == '1':
         show_balance()
     elif choice == '2':
-        deposit()
+        balance += deposit()
     elif choice == '3':
-        withdraw()
+        balance -= withdraw()
     elif choice == '4':
         is_running = False
     else:
         print("Invalid choice. Please try again.")
 
 print("Thank you for using the Banking Program. Goodbye!")
+
