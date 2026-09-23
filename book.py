@@ -7,5 +7,7 @@ class Book:
         self.borrower = None
     
     def __str__(self):
-        status = "Available" if self.available else "Not Available"
-        return f"{self.title} by {self.author} (ISBN: {self.isbn}) - {status}"
+        if self.available:
+            return f"{self.title} by {self.author} (ISBN: {self.isbn}) - Available"
+        else:
+            return f"{self.title} by {self.author} (ISBN: {self.isbn}) - Not Available"
