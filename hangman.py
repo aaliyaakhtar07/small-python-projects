@@ -11,15 +11,18 @@ hangman_art = {0: ("   ",
                    "   ",
                    "   ",),
                2: (" o ",
-                   "/| ",
-                   "   ",),
+                   " | ",
+                   "   ",), 
                3: (" o ",
-                   "/|\\ ",
+                   "/| ",
                    "   ",),
                4: (" o ",
                    "/|\\ ",
-                   "/ ",),
+                   "   ",),
                5: (" o ",
+                   "/|\\ ",
+                   "/ ",),
+               6: (" o ",
                    "/|\\ ",
                    "/ \\ ",),}
 def display_man(wrong_guesses):
@@ -46,14 +49,22 @@ def main():
         display_hint(hint)
         guess = input("Enter a letter: ").lower()
 
-        if len(guess) != 1:
+        if len(guess) != 1 or not guess.isalpha():
             print("Invalid input. Please enter a single letter.")
             continue
+
+        if guess in guessed_letters:
+            print("You already guessed that letter. Try again.")
+            continue
+
+            guessed_letters.add(guess)
 
         if guess in answer:
             for i in range(len(answer)):
                 if answer[i] == guess:
                     hint[i] = guess 
+        else:
+            wrong_guesses += 1
 
 
 if __name__ == "__main__":
