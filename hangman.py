@@ -66,6 +66,16 @@ def main():
         else:
             wrong_guesses += 1
 
+        if "_" not in hint:
+            display_man(wrong_guesses)
+            display_answer(answer)
+            print("Congratulations! You've guessed the word:", answer)
+            is_running = False
+        if wrong_guesses >= 6:
+            display_man(wrong_guesses)
+            print("Game Over! The correct word was:", answer)
+            is_running = False
+
 
 if __name__ == "__main__":
     main()
