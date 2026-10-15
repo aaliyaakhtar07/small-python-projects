@@ -14,4 +14,8 @@ quote_blocks = soup.find_all("div", class_="quote")
 
 #Loop through each block and extract the details
 for block in quote_blocks:
-    #Get the text inside 
+    #Get the text inside the quote span
+    quote_text = block.find("span", class_="text").text
+
+    #Get the author name
+    author_name = block.find("small", class_="author").text
