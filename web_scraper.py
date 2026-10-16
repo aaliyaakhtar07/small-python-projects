@@ -19,3 +19,7 @@ for block in quote_blocks:
 
     #Get the author name
     author_name = block.find("small", class_="author").text
+
+    print(f"Quote: {quote_text}")
+    print(f"Author: {author_name}")
+    print("-" * 40)  # Print a separator line
