@@ -15,7 +15,7 @@ print(f"You chose {reverseDict[you]}")
 
 if (computer == you):
     print("It's a tie!")
-else:
+'''else:
     if (computer == -1 and you == 1) :
         print("You win!")
     elif (computer == -1 and you == 0):
@@ -27,4 +27,9 @@ else:
     elif (computer == 0 and you == -1):
         print("You win!")
     elif (computer == 0 and you == 1):
-        print("You lose!")
+        print("You lose!")'''
+
+if (computer-you == -1) or (computer-you == 2):
+    print("You lose!")
+else:
+    print("You win!")
